@@ -38,15 +38,18 @@
 @section Scripts {
 
 <script type="text/javascript">
+
    function  submitForm(event) {
         event.preventDefault();
         const title = document.querySelector('.js_input_title');
         const description = document.querySelector('.js_input_description');
         const image = document.querySelector('.js_input_image');
         const formData = new FormData();
+
         if (image.files[0]) formData.append('File',image.files[0]);  
         if(title.value) formData.append('Title', title.value);
         if(description.value) formData.append('Description',description.value);
+
         console.log(formData);
          axios({
         method: "post",
@@ -66,6 +69,7 @@
             gestisciErroriValidazione(res.response.data.errors);
         });
     }
+
     // facciamo notare che questa funzione è uguale a quella delle pagina di modifica..si potrebbe accentrare...
     function gestisciErroriValidazione(listaErrori) {
         console.error('risultato errore', listaErrori);
@@ -92,6 +96,8 @@
         document.querySelector('.js_input_description_validation').innerHTML = '';
         document.querySelector('.js_input_image_validation').innerHTML = '';
     }
+
+
 </script>
 
 }
