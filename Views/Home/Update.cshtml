@@ -1,9 +1,11 @@
-﻿<div class="container">
+﻿
+<div class="container">
     <div class="row">
         <div class="col-12">
             <div class="d-flex align-items-center">
                 <h1 class="mt-3 mb-3">Modifica post</h1>
             </div>
+            <div class="immagine"></div>
             <form method="post" onsubmit="submitForm(event)">
                 <div class="mb-3">
                     <strong>Immagine:</strong>
@@ -46,6 +48,7 @@
         document.querySelector('.js_input_title').value = res.data.title;
         document.querySelector('.js_input_description').value = res.data.description;
         document.querySelector('.js_input_image').value = res.data.image;
+        document.querySelector('.immagine').innerHTML = `<img width="200px" src="data:image/png;base64,${ res.data.imageBytes}" alt="...">`;
     }).catch((res) => {
         console.error('risultato errore', res);
     });

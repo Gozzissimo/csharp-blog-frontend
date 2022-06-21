@@ -25,6 +25,13 @@ namespace csharp_blog_frontend.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult DetailBlob(int id)
+        {
+            ViewData["id"] = id;
+
+            return View();
+        }
 
         [HttpGet]
         public IActionResult Create()
